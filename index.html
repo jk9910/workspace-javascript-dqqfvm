@@ -481,6 +481,12 @@
 				<input type="button" value="Next">
       </p>
 
+        <script>
+         // $('.practice').hide();
+
+        </script>
+
+
 				<script>
 					//generate number from 1 to 10 
           function gen(){
@@ -495,7 +501,9 @@
           });
 
           // hide the next button --- try it with me. 
-          
+            $('#quiz input[type="button"]').hide();
+
+
           // check answer
           $('#quiz input[type="text"]').blur(function(){
               var $A = $(this).prev();
@@ -590,8 +598,19 @@
               var imglist = document.querySelectorAll('.img-container-hide')
               imglist[0].setAttribute('class','img-container');
 
+              // index which points to current image
+              var index = 0;
+
+              //call the function every 5 seconds
+              setInterval(runnow, 5000)
+
               //automatically change to another image
-              
+              function runnow(){
+                imglist[index].setAttribute('class','img-container-hide')
+                index++;
+                index = index % imglist.length;
+                imglist[index].setAttribute('class','img-container');
+              }
 
 
             </script>
